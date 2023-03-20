@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<title>Cater</title>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,300,700'>
+<link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'><link rel="stylesheet" href="./style.css">
+<meta name="viewport" content="width=device-width, initial-scale=0.6">
+
+</head>
+<body>
+<div class="mobile-wrap">
+	<div class="mobile clearfix">
+		<div class="content">
+			<div class="html welcome visible">
+				<div class="datetime">
+					<div class="day lightSpeedIn animated">Thursday</div>
+					<div class="date lightSpeedIn animated">05 January, 2017</div>
+					<div class="time lightSpeedIn animated">02:00 AM</div>
+				</div>
+				<br><br><br><br>
+				<center><h1>CATER</h1></center>
+			</div>
+
+			<div class="html compose">
+				<div class="forms">
+					<form  action="https://api.sheetmonkey.io/form/9uXBsAPoiWkf2aBzUArZad" method="post">
+						<input type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
+						<div class="group clearfix slideInRight animated">
+							<label class="pull-left" for="compose-time"><span class="ion-ios-person-outline"></span>Atendió</label>
+							<input class="pull-right" name="Atendio" type="text">
+						</div>
+						<div class="group clearfix slideInRight animated">
+							<label class="pull-left" for="compose-time"><span class="ion-ios-person-outline"></span>Cliente</label>
+							<input class="pull-right" name="Cliente" type="text">
+						</div>
+						<div class="group clearfix slideInRight animated">
+							<label class="pull-left" for="compose-time"><span class="ion-ios-location-outline"></span>Dirección</label>
+							<input class="pull-right" name="Direccion" type="text">
+						</div>
+						<div class="group clearfix slideInRight animated">
+							<label class="pull-left" for="compose-time"><span class="ion-ios-contact-outline"></span>Teléfono</label>
+							<input class="pull-right" name="Telefono" type="number">
+						</div>
+						<div class="group clearfix slideInLeft animated">
+							<label class="visible" for="compose-detail"><span class="ion-ios-list-outline"></span>Productos & Cantidad</label>
+							<textarea class="visible" name="Productos y cantidad" rows="3"></textarea>
+						</div>
+						<div class="group clearfix slideInLeft animated">
+							<label class="pull-left" for="compose-date"><span class="ion-ios-calendar-outline"></span>Fecha de entrega</label>
+							<input class="pull-right" name="Fecha de entrega" type="date">
+						</div>
+						<div class="group clearfix slideInLeft animated">
+							<label class="pull-left" for="compose-time"><span class="ion-ios-compose-outline"></span>Total a pagar</label>
+							<input class="pull-right" name="Precio total" type="number" id="Precio total">
+						</div>
+						<div class="group clearfix slideInLeft animated">
+							<label class="pull-left" for="compose-time"><span class="ion-ios-compose-outline"></span>Tipo de pago</label>
+							<select class="pull-right" name="Tipo de pago"><option>Tarjeta</option><option>Crédito</option><option>Efectivo</option></select>
+						</div>
+						<div class="group clearfix slideInLeft animated">
+							<label class="pull-left" for="compose-time"><span class="ion-ios-list-outline"></span>¿Factura?</label>
+							<select class="pull-right" name="Factura"><option>Si</option><option>No</option></select>
+						</div>
+						<input type="hidden" name="Estatus de entrega" value="Pendiente" />
+						<div class="group clearfix slideInLeft animated">
+							<label class="pull-left" for="compose-time"><span class="ion-ios-list-outline"></span>Estatus de pago</label>
+							<select class="pull-right" name="Estatus de pago" id="payment-status">
+							  <option>Pagado</option>
+							  <option>Abonado</option>
+							  <option>Pendiente</option>
+							</select>
+						</div>
+						<div id="quantity-container" style="display:none;" class="group clearfix slideInLeft animated">
+							<label class="pull-left" for="quantity"><span class="ion-ios-compose-outline"></span>Cantidad abonada</label>
+							<input class="pull-right" type="number" name="Cantidad abonada" id="Cantidad abonada">
+							<input type="hidden" name="Pendiente de pago" id="Pendiente de pago"/>
+						</div>
+		
+						<div class="action flipInY animated">
+							<input class="btn" type="submit" onclick="calculate()" value="Guardar" />
+						</div>
+					</form>
+					<script>
+						function calculate() {
+						  var num1 = parseFloat(document.getElementById("Precio total").value);
+						  var num2 = parseFloat(document.getElementById("Cantidad abonada").value);
+						  var result = num1 - num2;
+						  document.getElementById("Pendiente de pago").value = result;
+						}
+					</script>
+
+				</div>
+			</div>
+		</div>
+		<div class="nav">
+			<a href="#compose" class="nav-item nav-count-3"><i class="ion-ios-chatboxes-outline"></i>order</a>
+			<a href="#toggle" class="mask"><i class="ion-ios-plus-empty"></i></a>
+			
+		</div>
+	</div>
+</div>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js'></script><script  src="./script.js"></script>
+</body>
+</html>
